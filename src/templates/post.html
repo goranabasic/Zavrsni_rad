@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+    {% block title %}
+    <title>Clean Blog - Sample Post</title>
+    {% endblock %}
+ 
+    {% block content %}
+    <nav class="navbar navbar-inverse" style="margin-bottom: 0px">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'home' %}">MyBlog</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+           <ul class="dropdown-menu">
+            {% if categories %}
+                {% for category in categories %}
+                <li><a href="{{ category.get_absolute_url }}" class="list-group-item list-group-item-action">{{ category.cat_name }}</a></li>
+                {% endfor %}
+            {% else %}
+                <p>There are no categories.</p>
+            {% endif %}
+            </ul>
+        </li>
+      </ul>
+      
+         
+      <ul class="nav navbar-nav navbar-right">
+        <form class="navbar-form navbar" id="searchform" action="" method="get" accept-charset="utf-8" >
+            <div class="form-group">
+              <input class="form-control mr-sm-2" id="searchbox" name="q" type="text" placeholder="Search..." value="{{ request.GET.q }}" />
+            </div>
+        
+      </form>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+    </nav>
+    
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+<body>
+    {% if instance.image %}
+    <header class="intro-header" style="background-image:url('{{ instance.image.url }}')">
+    {% endif %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>{{ title }}</h1>
+                        <h2 class="subheading">{{ instance.content|linebreaks|truncatechars:100}}</h2>
+                        <span class="meta">Posted by <a href="#">{{ instance.author }}</a> on August 24, 2014</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p>{{ instance.content }}</p>
+                    <div class="fb-comments" data-href={{ request.build_absolute_uri }} data-numposts="5"></div>                   
+                </div>
+            </div>
+        </div>
+    </article>
+<hr>
+</body>
+{% endblock %}
+</html>

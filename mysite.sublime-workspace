@@ -1,0 +1,298 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"django",
+				"django_project"
+			],
+			[
+				"au",
+				"auto_now_add"
+			],
+			[
+				"def",
+				"default"
+			],
+			[
+				"pre",
+				"pre_save_post_receiver"
+			],
+			[
+				"url",
+				"urlpatterns"
+			],
+			[
+				"post",
+				"post_list"
+			],
+			[
+				"H",
+				"HttpResponseRedirect"
+			],
+			[
+				"inst",
+				"instance"
+			],
+			[
+				"Post",
+				"PostForm"
+			],
+			[
+				"i",
+				"instance"
+			],
+			[
+				"TEMPLA",
+				"template"
+			],
+			[
+				"a",
+				"auto_now_add"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "from __future__ import unicode_literals\nfrom django.conf import settings\nfrom django.db import models\nfrom django.utils import timezone\n\nfrom django.db import models\n\n# Create your models here.\n\ndef upload_location(instance, filename):\n    #filebase, extension = filename.split(\".\")\n    #return \"%s/%s.%s\" %(instance.id, instance.id, extension)\n    return \"%s/%s\" %(instance.id, filename)\n    \nclass Post(models.Model):\n    user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)\n    title = models.CharField(max_length=120)\n    slug = models.SlugField(unique=True)\n    image = models.ImageField(upload_to=upload_location, \n            null=True, \n            blank=True, \n            width_field=\"width_field\", \n            height_field=\"height_field\")\n    height_field = models.IntegerField(default=0)\n    width_field = models.IntegerField(default=0)\n    content = models.TextField()\n    draft = models.BooleanField(default=False)\n    publish = models.DateField(auto_now=False, auto_now_add=False)\n    updated = models.DateTimeField(auto_now=True, auto_now_add=False)\n    timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)\n\n    def __unicode__(self):\n        return self.title\n\n    def __str__(self):\n        return self.title",
+			"file": "webapp/models.py",
+			"file_size": 1251,
+			"file_write_time": 131352709744684902,
+			"settings":
+			{
+				"buffer_size": 1251,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "mysite/settings.py",
+			"settings":
+			{
+				"buffer_size": 3252,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/GBasic/mysite/mysite/settings.py",
+		"/C/Users/GBasic/mysite/mysite/urls.py",
+		"/C/Users/GBasic/mysite/webapp/urls.py",
+		"/C/Users/GBasic/mysite/webapp/views.py",
+		"/C/Users/GBasic/mysite/webapp/templates/webapp/home.html",
+		"/C/Users/GBasic/mysite/webapp/templates/webapp/header.html",
+		"/C/Users/GBasic/django_project/src/templates/base.html",
+		"/C/Users/GBasic/django_project/src/registration/login.html",
+		"/C/Users/GBasic/django_project/src/django_project/urls.py",
+		"/C/Users/GBasic/django_project/src/django_project/settings.py",
+		"/C/Users/GBasic/django_project/src/registration/login",
+		"/C/Users/GBasic/django_project/.gitignore",
+		"/C/Users/GBasic/django_project/src/blog/.gitignore",
+		"/C/Users/GBasic/django_project/src/manage.py",
+		"/C/Users/GBasic/Desktop/trydjango19/src/trydjango19/settings.py",
+		"/C/Users/GBasic/Desktop/trydjango19/src/posts/templatetags/urlify.py",
+		"/C/Users/GBasic/Desktop/trydjango19/src/templates/base.html",
+		"/C/Users/GBasic/Desktop/trydjango19/src/posts/templatetags/__init__.py",
+		"/C/Users/GBasic/Desktop/trydjango19/src/posts/migrations/0001_initial.py",
+		"/C/Users/GBasic/Desktop/trydjango19/src/templates/post_form.html",
+		"/C/Users/GBasic/Desktop/trydjango19/src/templates/messages_display.html",
+		"/C/Users/GBasic/Desktop/trydjango19/src/static/css/base.css",
+		"/C/Users/GBasic/Desktop/trydjango19/src/trydjango19/urls.py",
+		"/C/Users/GBasic/Desktop/trydjango19/src/posts/urls.py",
+		"/C/Users/GBasic/Desktop/trydjango19/src/templates/index.html",
+		"/C/Users/GBasic/Desktop/trydjango19/src/posts/models.py",
+		"/C/Users/GBasic/Desktop/trydjango19/src/posts/admin.py",
+		"/C/Users/GBasic/Desktop/trydjango19/Lib/site-packages/django/db/backends/mysql/base.py",
+		"/C/Users/GBasic/Desktop/trydjango19/.gitignore",
+		"/C/Users/GBasic/Desktop/trydjango19/Scripts/activate",
+		"/C/Users/GBasic/Desktop/trydjango19/src/trydjango19/wsgi.py",
+		"/C/Users/GBasic/Desktop/trydjango19/src/trydjango19/__init__.py"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"per",
+			"model",
+			"id",
+			"kwargs",
+			"id",
+			"venv"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "webapp/models.py",
+					"settings":
+					{
+						"buffer_size": 1251,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1175,
+								1175
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "mysite/settings.py",
+					"settings":
+					{
+						"buffer_size": 3252,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2336,
+								2336
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1242.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 118.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 205.0,
+	"status_bar_visible": true
+}
