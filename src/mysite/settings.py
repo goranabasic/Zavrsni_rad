@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.9/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
-
+from secret import *
 import os #modul pomocu kojega se formira path do manage.py bez obzira na cijem racunalu se otvori kod
 
 
@@ -20,19 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@)0nmrmvz)(^25#em9h-f#zimqe!5&p*1-ja72nac$xt0s3496'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'django.contact@gmail.com'
-EMAIL_HOST_PASSWORD = 'django123'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
 
 # Application definition
 
@@ -82,16 +75,8 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django_blog',
-        'USER': 'root',
-        'PASSWORD': 'django',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
-}
+
+
 
 
 # Password validation
